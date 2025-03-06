@@ -594,6 +594,7 @@ header {
     border-radius: 10px;
     overflow: hidden;
     animation: cardGlow 2s infinite alternate;
+    z-index: 1002; /* Higher than magic circle's z-index (1001) */
 }
 
 .floating-card-front, .floating-card-back {
