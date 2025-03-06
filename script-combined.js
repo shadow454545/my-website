@@ -25,9 +25,11 @@ let selectedPPTCards = [];
 const maxPPTCards = 3;
 
 // Initialize the page
-async function initPage() {
+function initPage() {
+    console.log('Initializing page...');
+    
     // Load tarot interpretations
-    await loadTarotInterpretations();
+    loadTarotInterpretations();
     
     // Set up the cards
     setupDailyFortuneCards();
@@ -67,6 +69,8 @@ async function initPage() {
     
     // Listen for window resize to adjust layout
     window.addEventListener('resize', checkMobileAndAdjustLayout);
+    
+    console.log('Page initialized successfully');
 }
 
 // Check if it's a mobile device and adjust layout accordingly
@@ -92,12 +96,14 @@ function checkMobileAndAdjustLayout() {
 
 // Load tarot interpretations from the tarotInterpretationsData variable
 function loadTarotInterpretations() {
+    console.log('Loading tarot interpretations...');
     tarotInterpretations = tarotInterpretationsData.tarot_interpretations;
-    return Promise.resolve(); // Return a resolved promise to maintain async compatibility
+    console.log(`Loaded ${tarotInterpretations.length} tarot interpretations`);
 }
 
 // Set up the daily fortune cards
 function setupDailyFortuneCards() {
+    console.log('Setting up daily fortune cards...');
     const tarotCardsContainer = document.querySelector('#daily-fortune .tarot-cards');
     tarotCardsContainer.innerHTML = '';
     
@@ -110,10 +116,12 @@ function setupDailyFortuneCards() {
         const card = createTarotCard(cardNumbers[i], i);
         tarotCardsContainer.appendChild(card);
     }
+    console.log('Daily fortune cards set up successfully');
 }
 
 // Set up the past-present-future cards
 function setupPPTCards() {
+    console.log('Setting up past-present-future cards...');
     const tarotCardsContainer = document.querySelector('#past-present-future .tarot-cards');
     tarotCardsContainer.innerHTML = '';
     
@@ -126,6 +134,7 @@ function setupPPTCards() {
         const card = createTarotCard(cardNumbers[i], i, true);
         tarotCardsContainer.appendChild(card);
     }
+    console.log('Past-present-future cards set up successfully');
 }
 
 // Shuffle an array using the Fisher-Yates algorithm
@@ -175,6 +184,7 @@ function createTarotCard(cardNumber, index, isPPT = false) {
 
 // Handle daily fortune card click
 function handleDailyCardClick(card) {
+    console.log('Daily fortune card clicked');
     const cards = document.querySelectorAll('#daily-fortune .tarot-card');
     
     // Deselect all cards
@@ -194,6 +204,7 @@ function handleDailyCardClick(card) {
 
 // Handle past-present-future card click
 function handlePPTCardClick(card) {
+    console.log('Past-present-future card clicked');
     const index = parseInt(card.dataset.index);
     
     // Check if the card is already selected
@@ -215,10 +226,13 @@ function handlePPTCardClick(card) {
     } else {
         pptConfirmButton.classList.add('hidden');
     }
+    
+    console.log('Selected PPT cards:', selectedPPTCards);
 }
 
 // Shuffle the daily fortune cards with animation
 function shuffleDailyCards() {
+    console.log('Shuffling daily fortune cards...');
     const cards = document.querySelectorAll('#daily-fortune .tarot-card');
     const cardsArray = Array.from(cards);
     
@@ -236,6 +250,7 @@ function shuffleDailyCards() {
 
 // Shuffle the past-present-future cards with animation
 function shufflePPTCards() {
+    console.log('Shuffling past-present-future cards...');
     const cards = document.querySelectorAll('#past-present-future .tarot-card');
     const cardsArray = Array.from(cards);
     
@@ -253,6 +268,7 @@ function shufflePPTCards() {
 
 // Perform a magical shuffle animation on cards
 function performMagicalShuffle(cards, containerSelector, callback) {
+    console.log('Performing magical shuffle animation...');
     // Get the shuffle animation container
     const shuffleContainer = document.querySelector('.shuffle-animation-container');
     const magicCircle = document.querySelector('.shuffle-magic-circle');
@@ -524,6 +540,7 @@ function performMagicalShuffle(cards, containerSelector, callback) {
 
 // Create particle effects
 function createParticles(container, count) {
+    console.log('Creating particles...');
     for (let i = 0; i < count; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
@@ -586,6 +603,7 @@ function createParticles(container, count) {
 
 // Show the daily fortune result with animation
 function showDailyResult() {
+    console.log('Showing daily fortune result...');
     if (selectedCard === null) return;
     
     // Get the selected card element
@@ -700,6 +718,7 @@ function showDailyResult() {
 
 // Show the past-present-future result with animation
 function showPPTResult() {
+    console.log('Showing past-present-future result...');
     if (selectedPPTCards.length !== maxPPTCards) return;
     
     // Get the selected card elements
@@ -745,31 +764,4 @@ function showPPTResult() {
                         
                         // Past card
                         const pastCardElement = createPPTCardElement(
-                            pastCard, 
-                            pastReversed, 
-                            translations[currentLang].positions.past
-                        );
-                        pptResult.appendChild(pastCardElement);
-                        
-                        // Present card
-                        const presentCardElement = createPPTCardElement(
-                            presentCard, 
-                            presentReversed, 
-                            translations[currentLang].positions.present
-                        );
-                        pptResult.appendChild(presentCardElement);
-                        
-                        // Future card
-                        const futureCardElement = createPPTCardElement(
-                            futureCard, 
-                            futureReversed, 
-                            translations[currentLang].positions.future
-                        );
-                        pptResult.appendChild(futureCardElement);
-                        
-                        resultContainer.appendChild(pptResult);
-                        
-                        // Show the result page
-                        showPage('result-page');
-                    }, 3000);
-                }, 1000);
+                            pastCard,

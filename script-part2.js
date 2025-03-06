@@ -772,4 +772,3 @@ function showPPTResult() {
                         // Show the result page
                         showPage('result-page');
                     }, 3000);
-                }, 1000);

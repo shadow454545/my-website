@@ -8,6 +8,8 @@
 body {
     background-color: #f5f5f5;
     min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Navigation Bar */
@@ -16,6 +18,7 @@ header {
     padding: 15px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     color: white;
+    width: 100%;
 }
 
 .navbar {
@@ -123,18 +126,10 @@ header {
 .shuffle-button-container {
     margin: 30px auto;
     text-align: center;
-    max-width: 300px;
+    width: 80%;
+    position: relative;
 }
 
-/* .shuffle-button {
-    margin-bottom: 20px;
-    background-color: #98a2ed !important;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-}*/
 .shuffle-button {
     font-size: 18px;
     font-weight: bold;
@@ -191,32 +186,6 @@ header {
         box-shadow: 0 0 20px rgba(255, 255, 255, 1);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .magic-icon {
     font-size: 20px;
@@ -439,6 +408,7 @@ header {
     background-position: center;
     animation: rotateCircle 10s linear infinite;
     position: relative;
+    z-index: 1001;
 }
 
 @media (max-width: 767px) {
@@ -852,6 +822,41 @@ header {
 
 /* Mobile styles */
 @media (max-width: 767px) {
+    /* Navigation bar mobile styles */
+    .navbar {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+    
+    .menu {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 10px 0;
+    }
+    
+    .menu-item {
+        margin: 5px;
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    
+    .language-selector {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .language-selector button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+    
+    /* Card layout mobile styles */
     .tarot-cards {
         display: flex;
         flex-wrap: wrap;
@@ -860,8 +865,26 @@ header {
     }
     
     .tarot-card {
-        width: 80px;
-        height: 140px;
+        width: 70px;
+        height: 120px;
+    }
+    
+    /* Adjust shuffle button for mobile */
+    .shuffle-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    
+    /* Adjust result card for mobile */
+    .card-image {
+        width: 150px;
+        height: 240px;
+    }
+    
+    /* Adjust floating card for mobile */
+    .floating-card {
+        width: 90px;
+        height: 150px;
     }
     
     /* Circle layout for mobile */

@@ -7,7 +7,7 @@ const translations = {
         pptTitle: "Think of a question and draw three cards",
         confirmButton: "Confirm",
         drawAgain: "Draw Again",
-        shuffleButton: "Manual Shuffle",
+        shuffleButton: "Magic Shuffle",
         cardPosition: {
             upright: "Upright",
             reversed: "Reversed"
@@ -26,7 +26,7 @@ const translations = {
         pptTitle: "想象你要问的事情，抽三张牌",
         confirmButton: "选好了",
         drawAgain: "重新抽牌",
-        shuffleButton: "手动洗牌",
+        shuffleButton: "魔法洗牌",
         cardPosition: {
             upright: "正位",
             reversed: "逆位"
@@ -45,7 +45,7 @@ const translations = {
         pptTitle: "質問を考えて、カードを三枚引いてください",
         confirmButton: "確認",
         drawAgain: "もう一度引く",
-        shuffleButton: "手動シャッフル",
+        shuffleButton: "魔法シャッフル",
         cardPosition: {
             upright: "正位置",
             reversed: "逆位置"
